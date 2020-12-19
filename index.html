@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>VUe instance</h1>
+        <h1>{{title}}</h1>
+        <button @click="show">text  haruulah</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                title: 'Garchig',
+                isShow: false
+            },
+            methods: {
+                show() {
+
+                    this.isShow = !this.isShow;
+                    this.updatedTitle('changeeee!!!!!!')
+                },
+                updatedTitle(titleChange) {
+                    this.title = titleChange;
+                }
+            },
+            computed: {
+                lowerCase() {
+                    return this.title.toLowerCase();
+                }
+            },
+            watch: {
+                title(value) {
+                    alert(value);
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
